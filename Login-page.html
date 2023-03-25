@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="/HTML/Js_Toutorial/eventListener.js" async="false"></script> -->
+
+    <title>Login-page</title>
+</head>
+<style>
+    #container {
+        background-color: rgb(24, 206, 230);
+        color: black;
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 10px 10px 10px black;
+        border-radius: 1rem;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: darkslategrey;
+    }
+
+    .btn:hover {
+        width: 70px;
+        height: 30px;
+        background-color: yellow;
+        box-shadow: 8px 8px 10px black;
+
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <main>
+        <form>
+            <div id="container">
+                <h2>USER LOGIN</h2>
+                <img src="/user.png" alt="Admin Image" id="icon">
+                <b>
+                    <p>Enter User ID</p>
+                </b>
+                <input type="text" required placeholder="User Id" id="userId">
+                <b>
+                    <p>Enter User Pasword</p>
+                </b>
+                <input type="password" required placeholder="Password" id="userPass">
+                <b>
+                    <!-- <p>Enter Captcha Code </p>
+                </b>
+                <input type="text" placeholder="Captcha"> -->
+                    <p>
+                        <button class="btn" id="login">Login</button>
+                        <button class="btn" id="cancel">Cancel</button>
+                    </p>
+            </div>
+        </form>
+    </main>
+
+    <script src="Login_page.js"></script>
+</body>
+
+</html>

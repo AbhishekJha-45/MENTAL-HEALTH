@@ -1,0 +1,214 @@
+<html>
+
+<head>
+    <title> MemeChat</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="memeServer.js"></script>
+</head>
+
+<body>
+
+    <div id="memechat">
+        <p id="p">Community Chat </p>
+        <p id="pr">Team achievers</p>
+    </div>
+    <br>
+    <br>
+
+    <body id="holder">
+        <form id="messageForm">
+
+
+            <input type="text" id="messageInput" placeholder="Type Something..." />
+            <button type="submit" id="btn" onclick="hidel()"> Send </button>
+
+        </form>
+        <div class="chat" id="chat" style="overflow-y:scroll; height:450px;">
+
+
+            <div id="messageBox">
+
+            </div>
+        </div>
+        <!-- <button type="submit" id="btn1" onclick="showl()"> Show All </button> -->
+
+    </body>
+</body>
+
+
+
+
+
+
+<script>
+    $(function () {
+        var socket = io.connect();  //connects to socket
+        var $messageForm = $("#messageForm"); //ref to the div message form
+        var $messageInput = $("#messageInput"); //ref to input box with id message
+        var $chat = $("#chat"); //ref to div chat
+        var test = $messageInput.val("");
+
+        $messageForm.submit(function (e) {
+            e.preventDefault();
+            socket.emit("send meme message", $messageInput.val());
+            $messageInput.val("");
+
+
+        });
+        socket.on("new meme message", function (data) {
+
+
+            if (data.msg.length > 0) {
+                $chat.append('<br>' + '<div id="circle"> ' + '<textarea id="t" readonly>' + data.msg + '</textarea>' + ' </div>' + '<br>');
+            }
+        });
+
+    });
+
+    showlog = false;
+    window.setInterval(function () {
+        if (showlog == false) {
+            var chat = document.getElementById("chat");
+            chat.scrollTop = chat.scrollHeight;
+        }
+    }, 4);
+
+    function showl() {
+        showlog = true;
+
+    }
+    function hidel() {
+        var chat = document.getElementById("chat");
+        chat.scrollTop = chat.scrollHeight;
+        showlog = false;
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+<style>
+    body {
+        background-color: #1abc9c;
+
+    }
+
+    #p {
+        margin-top: 9px;
+    }
+
+    #pr {
+        font-size: 12px;
+        margin-top: -34px;
+        margin-left: 82px;
+    }
+
+    #memechat {
+        background-color: #e74c3c;
+        font-family: verdana;
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        border: 2px solid white;
+        border-radius: 15px;
+        width: 290px;
+        height: 60px;
+
+    }
+
+    #btn {
+        background-color: white;
+        font-size: 15px;
+        font-family: Verdana;
+        color: black;
+        width: 56px;
+        height: 51px;
+        text-align: center;
+        margin-left: 0px;
+        border-radius: 10px;
+        outline: none;
+        border: 2px solid #e74c3c;
+
+    }
+
+    #btn1 {
+        background-color: white;
+        font-size: 15px;
+        font-family: Verdana;
+        color: black;
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        margin-left: 1040px;
+        margin-top: -40px;
+        border-radius: 10px;
+        outline: none;
+        border: 2px solid #e74c3c;
+
+    }
+
+    #messageInput {
+        margin-left: 532px;
+        text-align: center;
+        border-radius: 10px;
+        outline: none;
+        box-shadow: none;
+        font-size: 15px;
+        font-family: Verdana;
+        color: black;
+        width: 250px;
+        height: 50px;
+    }
+
+
+    #t {
+      text-align: left;
+      padding-left: 15px;
+      padding-top: 10px;
+        font-size: 15px;
+        font-family: Verdana;
+        color: black;
+        border: 2px solid #f1c40f;
+        margin-top: -5px;
+        margin-left: 72px;
+        width: 200px;
+        height: 60px;
+        background-color: white;
+        border-radius: 12px;
+        resize: none;
+        outline: none;
+
+    }
+
+    #chat {
+
+        border: 6px solid white;
+        width: 700px;
+        background-color: #e74c3c;
+        margin: auto;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    #circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        border: 5px solid white;
+        margin-left: 25px;
+        background-color: #f1c40f;
+
+    }
+</style>
+
+</html>

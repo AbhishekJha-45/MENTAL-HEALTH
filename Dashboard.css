@@ -1,0 +1,20 @@
+#logout {
+    color: #fbfcfd;
+    padding: 10px 25px;
+    background: purple;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+#community{
+    color: #fbfcfd;
+        padding: 10px 25px;
+        background: purple;
+        border: 1px solid #fff;
+        border-radius: 20px;
+        outline: none;
+        cursor: pointer;
+        margin-top: 50px;
+}

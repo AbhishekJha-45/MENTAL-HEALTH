@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form2.css">
+    <script src="edited-form.js" defer></script>
+    <title>SignUp Form</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+
+        <form class="form" id="form">
+            <label for="signUp" id="signUp">SignUp</label>
+
+            <label for="fname">Name</label>
+            <input type="text" required placeholder="Enter your first name" class="input" id="fname">
+
+            <label for="gender">Gender</label>
+            <div class="gender">
+                <input type="radio" name="gender" value="male" id="male">
+                <label for="male">male</label>
+
+                <input type="radio" name="gender" value="female" id="female">
+                <label for="female">female</label>
+
+                <input type="radio" name="gender" value="others" id="others">
+                <label for="female">others</label>
+            </div>
+
+            <label for="email">Email Id</label>
+            <input type="email" required placeholder="Enter your Email id" class=" input" id="email">
+            
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" required placeholder="Enter your profession" class=" input" id="phoneNumber">
+
+
+        </form>
+
+        <div class="btn">
+            <button type="submit" id="submit">Submit</button>
+            <button type="reset" id="reset">Reset</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
